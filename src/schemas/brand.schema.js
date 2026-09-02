@@ -8,10 +8,12 @@ export const createBrandSchema = z.object({
         .trim(),
     country: z
         .string()
-        .optional()
-        .trim(),
+        .trim()
+        .max(60, 'El país no puede superar los 60 caracteres.')
+        .optional(),
     website: z
         .string()
+        .url('El sitio web debe tener un formato URL válido.')
+        .max(200, 'El sitio web no puede superar los 200 caracteres.')
         .optional()
-        .url()
 });
