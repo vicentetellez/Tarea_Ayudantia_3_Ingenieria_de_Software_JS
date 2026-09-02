@@ -49,6 +49,7 @@ export const productIdParamSchema = z.object({
 // Esquema para validar filtros en la URL (?minPrice=&maxPrice=&categoryId=&inStock=)
 export const productQuerySchema = z.object({
   categoryId: z.string().regex(/^\d+$/).transform(Number).optional(),
+  brandId: z.string().regex(/^\d+$/).transform(Number).optional(),
   minPrice: z.string().regex(/^\d+(\.\d+)?$/).transform(Number).optional(),
   maxPrice: z.string().regex(/^\d+(\.\d+)?$/).transform(Number).optional(),
   inStock: z.enum(['true', 'false']).transform((val) => val === 'true').optional()
