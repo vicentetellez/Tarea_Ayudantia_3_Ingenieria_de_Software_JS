@@ -50,7 +50,7 @@ model Brand {
   id Int @id @default(autoincrement())
   name String @db.VarChar(80) @unique
   country String? @db.VarChar(60)
-  website String? @db.Text
+  website String? @db.VarChar(200)
 
   // RELACION 1:N CON PRODUCT
   products Product[]
@@ -67,7 +67,7 @@ model Review {
   
   // RELACION N:1 CON PRODUCT, CADA PRODUCTO TIENE 1 O VARIAS RESEÑAS, PERO 1 RESEÑA ESTA ASOCIADA A 1 PRODUCTO 
   productId Int
-  product Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@map("reviews")
 }
