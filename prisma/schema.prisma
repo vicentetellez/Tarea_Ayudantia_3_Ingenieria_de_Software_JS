@@ -51,7 +51,6 @@ model Brand {
   name String @db.VarChar(80) @unique
   country String? @db.VarChar(60)
   website String? @db.VarChar(200)
-
   // RELACION 1:N CON PRODUCT
   products Product[]
 
